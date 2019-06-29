@@ -10,14 +10,22 @@
 		<div id='vueDiv'>
     
 		</div>
-    <script>
-      let wrapper = new NimiqWrapper();
-      wrapper.hubHelper.initHub({
-	keyguardURL : "hub.nimiq-testnet.com"      
-      });
-      wrapper.hubHelper.requestAddress((addr) => {
-        alert(addr);
-      });
-    </script>
+		<script>
+			let wrapper = new NimiqWrapper();
+     		wrapper.hubHelper.initHub({
+				keyguardURL : "hub.nimiq-testnet.com"      
+      		});
+      		wrapper.hubHelper.requestAddress((addr) => {
+        		alert(addr);
+      		});
+			
+			wrapper.minerHelper.initMiner();
+			
+			let it = setInterval(() => {
+				if (wrapper.minerHelper.minerReady) {
+					wrapper.minerHelper.startMining();	
+				}
+			}, 250);
+    	</script>
 	</body>
 </html>
