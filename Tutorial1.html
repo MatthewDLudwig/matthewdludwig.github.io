@@ -17,13 +17,6 @@
 						alert("Node is definitely ready");	
 					}
 			});
-            
-            let it = setInterval(() => {
-                if (wrapper.nodeReady) {
-                    clearInterval(it);
-                    alert("Node is ready!");
-                }
-            }, 250);
     	</script>
 	</body>
 </html>
