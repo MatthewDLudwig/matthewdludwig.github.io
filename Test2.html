@@ -13,7 +13,7 @@
     <script>
       let wrapper = new NimiqWrapper();
       wrapper.hubHelper.initHub();
-      wrapper.requestAddress((addr) => {
+      wrapper.hubHelper.requestAddress((addr) => {
         alert(addr);
       });
     </script>
