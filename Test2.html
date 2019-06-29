@@ -12,7 +12,9 @@
 		</div>
     <script>
       let wrapper = new NimiqWrapper();
-      wrapper.hubHelper.initHub();
+      wrapper.hubHelper.initHub({
+	keyguardURL : "hub.nimiq-testnet.com"      
+      });
       wrapper.hubHelper.requestAddress((addr) => {
         alert(addr);
       });
