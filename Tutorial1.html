@@ -11,19 +11,14 @@
     
 		</div>
 		<script>
+			function logic() {
+				alert("Node is definitely ready");	
+			}
+			
             let wrapper = new NimiqWrapper();
             wrapper.initNode({
-				whenReady : () => {
-					alert("Node is definitely ready");	
-				}
+				whenReady : logic
 			});
-            
-            let it = setInterval(() => {
-                if (wrapper.nodeReady) {
-                    clearInterval(it);
-                    alert("Node Ready!");
-                }
-            }, 250);
     	</script>
 	</body>
 </html>
