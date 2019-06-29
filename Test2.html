@@ -12,20 +12,25 @@
 		</div>
 		<script>
 			let wrapper = new NimiqWrapper();
-     		wrapper.hubHelper.initHub({
+			wrapper.hubHelper.initHub({
 				keyguardURL : "https://hub.nimiq-testnet.com"      
       		});
-      		wrapper.hubHelper.requestAddress((addr) => {
+			wrapper.hubHelper.requestAddress((addr) => {
         		alert(addr);
       		});
 			
-			wrapper.minerHelper.initMiner();
+			wrapper.initNode({
+				network : "TEST",
+				whenReady : () => {
+					wrapper.minerHelper.initMiner();
 			
-			let it = setInterval(() => {
-				if (wrapper.minerHelper.minerReady) {
-					wrapper.minerHelper.startMining();	
+					let it = setInterval(() => {
+						if (wrapper.minerHelper.minerReady) {
+							wrapper.minerHelper.startMining();	
+						}
+					}, 250);
 				}
-			}, 250);
+			});			
     	</script>
 	</body>
 </html>
