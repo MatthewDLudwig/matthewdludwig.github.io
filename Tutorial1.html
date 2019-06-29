@@ -12,7 +12,11 @@
 		</div>
 		<script>
             let wrapper = new NimiqWrapper();
-            wrapper.initNode();
+            wrapper.initNode({
+				whenReady : () => {
+					alert("Node is definitely ready");	
+				}
+			});
             
             let it = setInterval(() => {
                 if (wrapper.nodeReady) {
